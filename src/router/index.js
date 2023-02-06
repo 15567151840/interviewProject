@@ -64,6 +64,12 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview')
         },
+        {
+            path: '/toJsSort',
+            name: 'ToJsSort',
+            component: () =>
+                import ('@/views/js-interview/about-js/bubbling')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
