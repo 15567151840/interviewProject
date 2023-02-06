@@ -26,6 +26,25 @@
                 return arr
             }
             console.log('冒泡排序的结果==》', bubblingSort(arr))
+        } {
+            var arrOne = [1, 3, 5, 2, 5, 6]
+                //选择排序 
+                //原理：首先从未排序序列中选出最小值的元素，放到数组的起始位置。然后从剩下的序列中找到最小值，放到次位
+            function chooseSort(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    var min = arr[i]
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (arr[j] < min) {
+                            var temp = arr[j]
+                            arr[j] = min
+                            min = temp
+                        }
+                    }
+                    arr[i] = min
+                }
+                return arr
+            }
+            console.log('chooseSort==>', chooseSort(arrOne))
         }
     </script>
 </body>
