@@ -21,6 +21,7 @@
             </el-menu-item-group>
             <el-menu-item-group title="js">
               <el-menu-item index="1-3" @click="toSort">js排序</el-menu-item>
+              <el-menu-item index="1-4" @click="toDuplicate">js去重</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
@@ -76,6 +77,9 @@ export default {
     toSort() {
       this.$router.push({ path: "/toJsSort" });
     },
+    toDuplicate(){
+        this.$router.push({ path: "/toJsDuplicate" });
+    }
   },
 };
 </script>

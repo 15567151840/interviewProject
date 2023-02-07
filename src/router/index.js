@@ -68,7 +68,13 @@ export default new Router({
             path: '/toJsSort',
             name: 'ToJsSort',
             component: () =>
-                import ('@/views/js-interview/about-js/bubbling')
+                import ('@/views/js-interview/about-js/sort')
+        },
+        {
+            path: '/toJsDuplicate',
+            name: 'ToJsDuplicate',
+            component: () =>
+                import ('@/views/js-interview/about-js/duplicate')
         },
         //css InterView
         {

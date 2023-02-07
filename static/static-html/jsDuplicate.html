@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //去重
+        {
+            //
+            var arr = [1, 1, 3, 4, 5, 4, 3, 5]
+
+            function duplicateFor(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (arr[i] === arr[j]) {
+                            arr.splice(j, 1)
+                        }
+                    }
+                }
+                return arr
+            }
+            console.log('duplicateFor==>', duplicateFor(arr))
+        } {
+            //new Set 的两种方法
+            let arrOne = [1, 1, 1, 2, 3, 4, 3, 2, 3]
+
+            function duplicateSet(arr) {
+                return Array.from(new Set(arr))
+            }
+            console.log('duplicateSet==>', duplicateSet(arrOne))
+            console.log('two==>', [...new Set(arrOne)])
+        } {
+            //利用数组的indexOf方法去重
+            var arrTwo = [1, 1, 2, 3, 2, 4, 5]
+
+            function dupliceIndexOf(arr) {
+                let newArr = []
+                for (var i = 0; i < arr.length; i++) {
+                    if (newArr.indexOf(arr[i]) === -1) {
+                        newArr.push(arr[i])
+                    }
+                }
+                return newArr
+            }
+            console.log('dupliceIndexOf==>', dupliceIndexOf(arrTwo))
+        } {
+            // 利用数组的includes,返回true,false 的特性
+            var arrThree = [-1, 0, 8, -3, -1, 5, 5, 7];
+
+            function unique(arr) {
+                let arr1 = [];
+                for (let i = 0; i < arr.length; i++) {
+                    if (!arr1.includes(arr[i])) {
+                        arr1.push(arr[i]);
+                    }
+                }
+                return arr1;
+            }
+            console.log('unique', unique(arrThree)); //  -1, 0, 8, -3, 5, 7
+        } {
+            // filter 方式过滤,第一次出现的索引等于当前索引
+            var arr = [1, 2, 8, 9, 5, 8, 4, 0, 4];
+
+            function unique(arr) {
+                return arr.filter((item, index) => {
+                    return arr.indexOf(item, 0) === index;
+                });
+            }
+            console.log('uniqueOne', unique(arr));
+            // [1, 2, 8, 9, 5, 4, 0]
+        } {
+            //递归, 数组赋值一个改变一个也改变，要想不改变原数组，需要for 循环赋值
+            var arr = [1, 1, 5, 6, 0, 9, 3, 0, 6];
+
+            function unique(arr) {
+                let arr1 = [];
+                for (let i = 0; i < arr.length; i++) {
+                    arr1.push(arr[i]);
+                }
+                arr1.sort();
+                let len = arr1.length;
+
+                function loop(index) {
+                    if (index >= 1) {
+                        if (arr1[index] === arr1[index - 1]) {
+                            arr1.splice(index, 1);
+                        }
+                        index--;
+                        loop(index);
+                    }
+                }
+                loop(len - 1);
+                return arr1;
+            }
+            console.log('uniqueTwo', unique(arr));
+            console.log('arr==>', arr);
+        } {
+            //利用ES6中的Map方法去重，创建一个空Map数据结构，遍历需要去重的数组，把数组的每一个元素作为key存到Map中。由于Map中不会出现相同的key值，所以最终得到的就是去重后的结果
+            let arr = [1, 0, 8, 3, -9, 1, 0, -9, 7];
+
+            function unique(arr) {
+                let map1 = new Map();
+                let arr1 = [];
+                for (let i = 0; i < arr.length; i++) {
+                    if (!map1.has(arr[i])) {
+                        arr1.push(arr[i]);
+                        map1.set(arr[i], 2);
+                    } else {
+                        map1.set(arr[i], 1);
+                    }
+                }
+                let obj = {};
+                obj.arr1 = arr1;
+                obj.map1 = map1;
+                return obj;
+            }
+            console.log('uniqueThree', unique(arr)); // 1, 0, 8, 3, -9, 7
+        }
+    </script>
+</body>
+
+</html>
