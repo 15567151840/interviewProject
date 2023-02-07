@@ -71,6 +71,12 @@ export default new Router({
                 import ('@/views/js-interview/about-js/sort')
         },
         {
+            path: '/toJsFlat',
+            name: 'ToJsFlat',
+            component: () =>
+                import ('@/views/js-interview/about-js/flat')
+        },
+        {
             path: '/toJsDuplicate',
             name: 'ToJsDuplicate',
             component: () =>

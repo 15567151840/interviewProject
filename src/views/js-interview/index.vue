@@ -22,6 +22,7 @@
             <el-menu-item-group title="js">
               <el-menu-item index="1-3" @click="toSort">js排序</el-menu-item>
               <el-menu-item index="1-4" @click="toDuplicate">js去重</el-menu-item>
+              <el-menu-item index="1-5" @click="toFlat">js扁平化</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
@@ -79,6 +80,9 @@ export default {
     },
     toDuplicate(){
         this.$router.push({ path: "/toJsDuplicate" });
+    },
+    toFlat(){
+      this.$router.push({ path: "/toJsFlat" });
     }
   },
 };
