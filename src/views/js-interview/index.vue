@@ -29,6 +29,7 @@
               <el-menu-item index="1-9" @click="toReverseStr">js判断是否为回文字符串</el-menu-item>
               <el-menu-item index="1-10" @click="toInherit">js实现继承</el-menu-item>
               <el-menu-item index="1-11" @click="toSFFME">js-someFilterFindMapEvery</el-menu-item>
+              <el-menu-item index="1-12" @click="to134secondPrint123">134秒打印出123</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
@@ -109,6 +110,9 @@ export default {
     },
     toSFFME(){
       this.$router.push({path: "/toJsSFFME"})
+    },
+    to134secondPrint123(){
+      this.$router.push({path: "/toJs134secondPrint123"})
     }
   },
 };

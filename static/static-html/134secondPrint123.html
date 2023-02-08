@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //设计一个简单的任务队列，要求分别在1,3,4秒后打印出”1“，”2“，”3“
+        {
+            function Quene() {
+                this.quene = [];
+            }
+
+
+            Quene.prototype.task = function(time, callback) {
+                this.quene.push({
+                    time,
+                    callback
+                });
+                return this;
+            };
+
+            Quene.prototype.start = function() {
+                const quene = this.quene;
+                let result = Promise.resolve();
+
+                quene.forEach((item) => {
+                    result = result.then(() => {
+                        return new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                resolve(item.callback());
+                            }, item.time);
+                        });
+                    });
+                });
+
+                return result;
+            };
+
+
+            new Quene()
+                .task(1000, () => {
+                    console.log(1)
+                })
+                .task(2000, () => {
+                    console.log(2)
+                })
+                .task(1000, () => {
+                    console.log(3)
+                })
+                .start()
+        }
+        //要是没有题目的限制，用async await超简单
+        {
+
+            async function one() {
+                setTimeout(function() {
+                    console.log(1);
+                }, 1000);
+            }
+            async function two() {
+                setTimeout(function() {
+                    console.log(2);
+                }, 3000);
+            }
+            async function three() {
+                setTimeout(function() {
+                    console.log(3);
+                }, 4000);
+            }
+            async function run() {
+                var p1 = await one();
+                var p2 = await two();
+                var p3 = await three();
+            }
+            run();
+        }
+    </script>
+</body>
+
+</html>

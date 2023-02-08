@@ -118,6 +118,12 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/someFilterFindMapEvery')
         },
+        {
+            path: '/toJs134secondPrint123',
+            name: 'ToJs134secondPrint123',
+            component: () =>
+                import ('@/views/js-interview/about-js/134secondPrint123')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
