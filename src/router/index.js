@@ -94,6 +94,12 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/minCommonMultilp')
         },
+        {
+            path: '/toJsRealizeIndexOf',
+            name: 'ToJsRealizeIndexOf',
+            component: () =>
+                import ('@/views/js-interview/about-js/realizeIndexOf')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
