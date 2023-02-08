@@ -100,6 +100,12 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/realizeIndexOf')
         },
+        {
+            path: '/toJsReverseStr',
+            name: 'ToJsReverseStr',
+            component: () =>
+                import ('@/views/js-interview/about-js/reverseStr')
+        },
         //css InterView
         {
             path: '/toCssTriangle',

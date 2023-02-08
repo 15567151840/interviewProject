@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            //回文字符串：即正反都一样的字符串
+            // 方法一
+            function reverseFn(str) {
+                var str1 = str.split('').reverse().join('');
+                var flage = true
+                for (var i = 0; i < str1.length; i++) {
+                    if (str1.charAt(i) == str.charAt(i)) {
+                        continue;
+                    } else {
+                        flage = false;
+                        break;
+                    }
+                }
+                if (flage) {
+                    return console.log("这是一个回文字符串")
+                } else {
+                    return console.log("这不是一个回文字符串")
+                }
+            }
+            reverseFn('12dc21')
+        } {
+            //方法二
+            function reverseFn(str) {
+                var len = str.length;
+                var flage = true;
+                for (var i = 0; i < len / 2; i++) {
+                    if (str[i] != str[len - 1 - i]) {
+                        flage = false
+                        break;
+                    }
+                }
+                return flage
+            }
+            console.log(reverseFn('1221'))
+        } {
+            //方法三
+            function reverseFn(str) {
+                var str1 = str.split('').reverse().join('')
+                var flage = true;
+                if (str1 !== str) {
+                    flage = false
+                }
+                return flage
+            }
+            console.log('reverseFn=3==>', reverseFn('1221'))
+        }
+    </script>
+</body>
+
+</html>
