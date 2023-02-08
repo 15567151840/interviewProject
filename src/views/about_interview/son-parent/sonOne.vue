@@ -1,6 +1,7 @@
 <template>
 <div>son
     <el-button @click="to">TO</el-button>
+    <el-button @click="toBrother">ToBrother</el-button>
 </div>
 </template>
 <script>
@@ -15,7 +16,6 @@ import bus from './bus'
     },
     created(){
         this.$emit('toF',this.msg)
-        bus.$emit('toD',this.toD)
     },
     methods:{
         to(){
@@ -24,9 +24,12 @@ import bus from './bus'
            this.$router.addRoutes([{
                 path:'/tob',
                 component: () =>
-                import ('@/views/about_interview/son-parent/brother')
+                import ('@/views/about_interview/son-parent/sonTwo')
             }])
             console.log('route',this.$router)
+        },
+        toBrother(){
+           bus.$emit('toD',this.toD)
         }
     }
  }

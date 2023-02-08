@@ -2,17 +2,17 @@
   <div>
     <h1>test</h1>
     {{ msg }}
-    <son @toF="getm" />
-    <brother @toD="getD" />
+    <sonOne @toF="getm" />
+    <sonTwo @toD="getD" />
   </div>
 </template>
 <script>
-import son from "./son.vue";
-import brother from "./brother.vue";
+import sonOne from "./sonOne.vue";
+import sonTwo from "./sonTwo.vue";
 export default {
   components: {
-    son,
-    brother,
+    sonOne,
+    sonTwo,
   },
   data() {
     return {

@@ -11,6 +11,11 @@ export default{
          getx:''
         }
     },
+    mounted(){
+        bus.$on('toD',(val)=>{
+            this.getx = val
+        })
+    },
     methods:{
 
     }
