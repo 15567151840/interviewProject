@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3, 4, 5, 6]
+            //通过指定函数处理函数的每个元素
+        var na = arr.map(item => {
+            return item + 2
+        })
+        console.log('na==>', na);
+        console.log('arr==>', arr)
+            //filter 创建一个新数组,新数组中的元素是通过检查指定数组中的符合条件的所有元素
+        var nf = arr.filter(item => {
+            return item > 3
+        })
+        console.log('filter==>', nf)
+        console.log('arr==>', arr)
+            //some 返回布尔值，若有一个元素满足条件，则返回true,剩余的元素不会进行检测，若没有满足条件的元素返回false
+        var ns = arr.some(item => {
+            return item > 4
+        })
+        console.log('some==>', ns)
+        console.log('arr==>', arr)
+            //every 用于检测数组中的所有元素都符合条件
+        var ne = arr.every(item => {
+            return item % 2 == 0
+        })
+        console.log('ne==>', ne);
+        console.log('arr==>', arr)
+            //find 返回第一个符合条件的元素
+        var nfi = arr.find(item => {
+            return item > 1
+        })
+        console.log('nfi==>', nfi);
+        console.log('arr==>', arr)
+    </script>
+</body>
+<style>
+
+</style>
+
+</html>

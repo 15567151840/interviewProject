@@ -106,6 +106,18 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/reverseStr')
         },
+        {
+            path: '/toJsInherit',
+            name: 'ToJsInherit',
+            component: () =>
+                import ('@/views/js-interview/about-js/inherit')
+        },
+        {
+            path: '/toJsSFFME',
+            name: '/ToJsSFFME',
+            component: () =>
+                import ('@/views/js-interview/about-js/someFilterFindMapEvery')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
