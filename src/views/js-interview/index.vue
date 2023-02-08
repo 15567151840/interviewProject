@@ -23,6 +23,8 @@
               <el-menu-item index="1-3" @click="toSort">js排序</el-menu-item>
               <el-menu-item index="1-4" @click="toDuplicate">js去重</el-menu-item>
               <el-menu-item index="1-5" @click="toFlat">js扁平化</el-menu-item>
+              <el-menu-item index="1-6" @click="toMaxCommonDivisor">js获取两个数的最大公约数</el-menu-item>
+              <el-menu-item index="1-7" @click="toMinCommonMultilp">js获取两个数的最小公倍数</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
@@ -83,6 +85,13 @@ export default {
     },
     toFlat(){
       this.$router.push({ path: "/toJsFlat" });
+    },
+    toMaxCommonDivisor(){
+      console.log('ssss')
+      this.$router.push({ path: "/toJsCommonDivisor" });
+    },
+    toMinCommonMultilp(){
+      this.$router.push({path: "/toJsCommonMultilp"})
     }
   },
 };

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            //求两个数的最小公倍数的思路，两个数相乘然后除以他们的最大公约数
+            function minCommonMultilp(m, n) {
+                var min = n;
+                (m < n) && (min = m)
+                for (var i = 0, arr = []; i <= min; i++) {
+                    if (n % i == 0 && m % i == 0) {
+                        arr.push(i)
+                    }
+                }
+                return m * n / arr[arr.length - 1]
+            }
+            console.log('查看最小公倍数==》', minCommonMultilp(15, 225))
+        }
+    </script>
+</body>
+
+</html>

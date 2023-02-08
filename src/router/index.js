@@ -82,6 +82,18 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/duplicate')
         },
+        {
+            path: '/toJsCommonDivisor',
+            name: 'ToJsCommonDivisor',
+            component: () =>
+                import ('@/views/js-interview/about-js/maxCommonDivisor')
+        },
+        {
+            path: '/toJsCommonMultilp',
+            name: 'toJsCommonMultilp',
+            component: () =>
+                import ('@/views/js-interview/about-js/minCommonMultilp')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
