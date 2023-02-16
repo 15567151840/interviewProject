@@ -1,0 +1,55 @@
+必选参数
+
+参数	类型	说明
+data-key	    String / Function	唯一键来自每个数据对象中的 data-sources。或者使用每个 data-sources 调用的函数并返回它们的唯一键。它的值在 data-sources 中必须是唯一的，用于标识节点大小。
+data-sources	Array[Object]	    列表构建的源数组，每个数组数据必须是一个对象，并且有一个唯一的 key 或 generate for data-key 属性。
+data-component	Component	        由 vue 创建 / 声明的渲染项组件，将使用 data-sources 中的数据对象作为渲染 prop 并命名为：source。
+可选参数
+常用
+
+参数	类型	默认值	说明
+keeps	        Number	 30	虚拟列表在真实 dom 中保持渲染的节点数量。
+extra-props	    Object	 { }	额外的参数（不在 data-sources 中的）分配给节点组件。注意：index 和 source 都已被占用。
+estimate-size	Number	 50	每个节点的预计尺寸，如果更接近平均尺寸，滚动条长度看起来更准确。建议：分配自己计算的平均值。
+不常用
+
+参数	类型	默认值	说明
+start	            Number	0	设置滚动位置停留开始索引。
+offset	            Number	0	设置滚动位置保持偏移。
+scroll	            Event		滚动时发出，回调参数（event, range）
+totop	            Event		滚动到顶部或左侧时发出，无参数。
+tobottom	        Event		滚动到底部或右侧时发出，无参数。
+resized	            Event		调整项目大小时发出 (mounted)，回调参数 (id, size)。
+direction	        String	vertical	滚动方向，可用值为 vertical 和 horizontal。
+page-mode	        Boolean	false	设置虚拟列表使用全局文档滚动列表。
+top-threshold	    Number	0	触发 totop 事件的阈值，注意：多次调用
+bottom-threshold	Number	0	触发 tobottom 事件的阈值，注意：多次调用
+root-tag	        String	div	根元素标记名称。
+wrap-tag	        String	div	包裹元素（role = item）标签名称。
+item-class	        String		包裹元素类名。
+item-class-add	    Function		可将额外的类（字符串）返回到节点包裹元素参数（索引）的函数。
+item-style	        Object	{ }	节点包裹元素内联样式。
+item-scoped-slots	Object	{ }	节点组件的 $scopedSlots。
+header-tag	        String	div	对于使用头槽，头槽包裹元素（role = header）标签名称。
+header-class	    String	{ }	对于使用头槽，头槽包裹元素类名。
+header-style	    Object	{ }	对于使用头槽，头槽包裹元素内联样式。
+footer-tag	        String	div	对于使用页脚槽，页脚槽包裹元素（role = footer）标签名称。
+footer-class	    String	div	对于使用页脚槽，页脚槽包裹元素类名。
+footer-style	    Object	{ }	用于使用页脚槽、页脚槽包裹元素内联样式。
+4. 公共方法
+可以通过 ref 调用这些方法：
+
+方法	说明
+reset()	                将所有状态重置回初始状态。
+scrollToBottom()	    手动将滚动位置设置为底部。
+scrollToIndex(index)	手动将滚动位置设置为指定的索引。
+scrollToOffset(offset)	手动将滚动位置设置为指定的偏移量。
+getSize(id)	            通过 id 获取指定的 item 大小（来自 data-key value）。
+getSizes()	            获取存储（渲染）节点的总数。
+getOffset()	            获取当前滚动偏移量。
+getClientSize()	        获取包裹元素视口大小（宽度或高度）。
+getScrollSize()	        获取所有滚动大小（scrollHeight 或 scrollWidth）。
+updatePageModeFront()	当使用页面模式和虚拟列表根元素 offsetTop 或 offsetLeft 变化时，需要手动调用该方法。
+————————————————
+版权声明：本文为CSDN博主「明天也要努力」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/ZYS10000/article/details/122294309

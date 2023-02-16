@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 //import HelloWorld from '@/components/HelloWorld'
+//import Layout from '@/layout'
 
 Vue.use(Router)
 
@@ -56,6 +57,20 @@ export default new Router({
             name: 'ToViewInterview',
             component: () =>
                 import ('@/views/vue-interview')
+        },
+        {
+            path: '/toMoreData',
+            name: 'ToMoreData',
+            component: () =>
+                import ('@/views/vue-interview/more-data/index')
+        },
+        //elselect结合vitrualList
+        {
+            path: '/toVitualListElselect',
+            name: 'ToVitualListElselect',
+            component: () =>
+                import ('@/views/vue-interview/more-data/virtualListCombineElselect')
+
         },
         //js Interview
         {
@@ -130,6 +145,6 @@ export default new Router({
             name: 'ToCssTriangle',
             component: () =>
                 import ('@/views/js-interview/about-css/triangle')
-        }
+        },
     ]
 })

@@ -4,12 +4,12 @@
     <button @click="getValue()">GET</button>
     <button @click="setValue()">SET</button>
     <div>
-      <el-select v-model="value" placeholder="请选择" @change="cValue">
+      <el-select v-loadmore="loadmore" v-model="value" placeholder="请选择" @change="cValue">
         <el-option
           v-for="(item,index) in options"
           :key="index"
           :label="item.name"
-          :value ="item.name"
+          :value ="item.age"
         >
         </el-option>
       </el-select>
@@ -38,10 +38,30 @@ export default {
         }
         ],
         value:'',
-        selectValue:{}
+        selectValue:{},
+        i:200
     };
   },
+  created(){
+    for(let i=0;i<=this.i;i++){
+      var obj = {};
+      obj.name = i;
+      obj.age = i;
+      this.options.push(obj)
+    }
+  },
   methods: {
+    //自定义组件绑定事件
+    loadmore(){
+      //console.log('自定义事件绑定事件')
+      this.i += 200
+      for(let c=200;c<=this.i;c++){
+      var obj = {};
+      obj.name = c;
+      obj.age = c;
+      this.options.push(obj)
+      }
+    },
     getValue() {
       console.log(this.$store.getters.userInfo);
     },
