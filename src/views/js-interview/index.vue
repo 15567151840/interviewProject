@@ -30,6 +30,8 @@
               <el-menu-item index="1-10" @click="toInherit">js实现继承</el-menu-item>
               <el-menu-item index="1-11" @click="toSFFME">js-someFilterFindMapEvery</el-menu-item>
               <el-menu-item index="1-12" @click="to134secondPrint123">134秒打印出123</el-menu-item>
+              <el-menu-item index="1-13" @click="toDeepAndShallowCopy">深浅拷贝</el-menu-item>
+              <el-menu-item index="1-14" @click="toAntiShakeAndThrottle">防抖和节流</el-menu-item>
             </el-menu-item-group>
             <el-submenu index="1-4">
               <template slot="title">选项4</template>
@@ -113,6 +115,12 @@ export default {
     },
     to134secondPrint123(){
       this.$router.push({path: "/toJs134secondPrint123"})
+    },
+    toDeepAndShallowCopy(){
+      this.$router.push({path: "/toDeepAndShallowCopy"})
+    },
+    toAntiShakeAndThrottle(){
+      this.$router.push({path: "/toJsAntiShakeAndThrottle"})
     }
   },
 };

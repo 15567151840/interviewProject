@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inp">
+    <button onclick="debounce(sayHi,5000)">防抖</button>
+    <script>
+        //防抖
+        //n秒后在执行该事件，若在n秒内被重复触发，则重新计时
+        //节流
+        // n秒内只运行一次，若在n秒内重复触发，只有一次生效
+        {
+            //防抖函数
+            function debounce(fn, delay) {
+                //console.log('dddd')
+                let timeout = null
+                return function() { //因为是闭包所以按钮点击的时候不会生效
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => {
+                        fn()
+                    }, delay)
+                }
+            }
+
+            function sayHi() {
+                console.log('防抖成功');
+            }
+            // 2.获取inpt元素
+            var inp = document.getElementById('inp');
+            // 8. 测试防抖临时使用的函数
+            function sayHi() {
+                console.log('防抖成功');
+            }
+            // 3.给inp绑定input事件  调用封装的防抖函数  传入要执行的内容与间隔事件 
+            inp.addEventListener('input', debounce(sayHi, 5000));
+        } {
+            //节流函数
+            function throttle(fn, time) {
+                //3.通过闭包保存一个节流阀,默认为false
+                let temp = false;
+                return function() {
+                    //触发事件被调用 判断节流阀 是否为true 如果为true 的话,直接return
+                    if (temp) {
+                        return
+                    } else {
+                        //如果节流阀为false立即设置节流阀为true
+                        temp = true
+                            //开启定时器
+                        setTimeout(() => {
+                            fn.apply(this, arguments)
+                            temp = false
+                        }, time)
+                    }
+                }
+
+            }
+
+            function sayHi(e) {
+                // 打印当前 document 的宽高
+                console.log(e.target.innerWidth, e.target.innerHeight);
+            }
+            // 2.绑定事件，绑定时就调用节流函数  
+            // 敲黑板！！！ 这里是重点 绑定是就要调用一下封装的节流函数 触发事件是触发封装函数内部的函数
+            window.addEventListener('resize', throttle(sayHi, 2000));
+        }
+    </script>
+</body>
+
+</html>

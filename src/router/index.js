@@ -139,6 +139,18 @@ export default new Router({
             component: () =>
                 import ('@/views/js-interview/about-js/134secondPrint123')
         },
+        {
+            path: '/toDeepAndShallowCopy',
+            name: 'ToDeepAndShallowCopy',
+            component: () =>
+                import ('@/views/js-interview/about-js/deepAndShallowCopy')
+        },
+        {
+            path: '/toJsAntiShakeAndThrottle',
+            name: 'ToJsAntiShakeAndThrottle',
+            component: () =>
+                import ('@/views/js-interview/about-js/antiShakeAndThrottle')
+        },
         //css InterView
         {
             path: '/toCssTriangle',
