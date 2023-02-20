@@ -10,7 +10,7 @@
 
 <body>
     <input type="text" id="inp">
-    <button onclick="debounce(sayHi,5000)">防抖</button>
+    <button onclick="debounce(sayHi,500)">防抖</button>
     <script>
         //防抖
         //n秒后在执行该事件，若在n秒内被重复触发，则重新计时
@@ -39,12 +39,13 @@
                 console.log('防抖成功');
             }
             // 3.给inp绑定input事件  调用封装的防抖函数  传入要执行的内容与间隔事件 
-            inp.addEventListener('input', debounce(sayHi, 5000));
+            inp.addEventListener('input', debounce(sayHi, 500));
         } {
-            //节流函数
+            //节流函数 //n秒内只执行一次
             function throttle(fn, time) {
                 //3.通过闭包保存一个节流阀,默认为false
                 let temp = false;
+                console.log(temp, 'temp') //temp只是声明了一下，刚开始的时候只调用一次，以后调用的时候就不走了
                 return function() {
                     //触发事件被调用 判断节流阀 是否为true 如果为true 的话,直接return
                     if (temp) {
@@ -62,10 +63,10 @@
 
             }
 
-            function sayHi(e) {
-                // 打印当前 document 的宽高
-                console.log(e.target.innerWidth, e.target.innerHeight);
-            }
+            // function sayHi(e) {
+            //     // 打印当前 document 的宽高
+            //     console.log(e.target.innerWidth, e.target.innerHeight);
+            // }
             // 2.绑定事件，绑定时就调用节流函数  
             // 敲黑板！！！ 这里是重点 绑定是就要调用一下封装的节流函数 触发事件是触发封装函数内部的函数
             window.addEventListener('resize', throttle(sayHi, 2000));

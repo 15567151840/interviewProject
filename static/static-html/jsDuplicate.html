@@ -69,7 +69,7 @@
 
             function unique(arr) {
                 return arr.filter((item, index) => {
-                    return arr.indexOf(item, 0) === index;
+                    return arr.indexOf(item, 0) === index; //如果查询到返回索引，反之返回-1（固定用法）
                 });
             }
             console.log('uniqueOne', unique(arr));
